@@ -2,12 +2,20 @@ import React, { Component } from 'react';
 import Todo from './Todo';
 //import componantes
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, setTodos,filteredTodos }) => {
+	//Events
 	return (
 		<div class='todo-container'>
 			<ul class='todo-list'>
-				{todos.map((element) => (
-					<Todo text ={element.text} key={element.id}/>
+				{filteredTodos.map((element) => (
+					<Todo
+						text={element.text}
+						key={element.id}
+						todos={todos}
+						setTodos={setTodos}
+						id = {element.id}
+						todo = {element}
+					/>
 				))}
 			</ul>
 		</div>
